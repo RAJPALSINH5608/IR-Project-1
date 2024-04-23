@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-10 px-4">
+        <form class="flex items-center mb-4" id="search-form">
+            <input type="text" class="w-full p-3 border border-gray-300 rounded-l-md focus:outline-none focus:border-blue-500" id="search-input" placeholder="Enter your search query...">
+            <button type="submit" class="px-6 py-3 bg-blue-500 text-white rounded-r-md ml-2 focus:outline-none">Search</button>
+        </form>
+        <div class="border border-gray-300 rounded-md bg-white p-4 h-60 overflow-y-auto" id="search-results">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            search();
+        });
+
+        function search() {
+            // Get the search query
+            var query = document.getElementById('search-input').value;
+
+            // Perform AJAX request to fetch search results
+            fetch('/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({query: query})
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display search results
+                displayResults(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function displayResults(results) {
+            var searchResults = document.getElementById('search-results');
+            searchResults.innerHTML = '';
+
+            results.forEach(function(result) {
+                var resultItem = document.createElement('div');
+                resultItem.className = 'mb-4';
+                resultItem.innerHTML = `
+                    <div class="text-gray-500 mb-1">Cosine Similarity Score: ${result['Cosine Similarity Score']}</div>
+                    <div class="text-sm">${result['Search Result Content']}</div>
+                `;
+                searchResults.appendChild(resultItem);
+            });
+        }
+    </script>
+</body>
+</html>
+
