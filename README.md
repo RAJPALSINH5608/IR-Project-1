@@ -66,11 +66,11 @@ Implementation:
 
 ### Operation
 
-- **Commands:** The system primarily operates through Python scripts, leveraging the Flask application as the primary interface for querying. Users interact with the system by executing predefined commands within the Python environment, allowing them to initiate crawling, perform indexing, and execute queries seamlessly.
+- *Commands:* The system primarily operates through Python scripts, leveraging the Flask application as the primary interface for querying. Users interact with the system by executing predefined commands within the Python environment, allowing them to initiate crawling, perform indexing, and execute queries seamlessly.
 
-- **Inputs:** The system accepts two main types of inputs: URLs and free-text queries. URLs are provided to initiate the crawling process, specifying the starting point for the web crawler to traverse and retrieve web documents. Free-text queries are utilized to retrieve specific documents or information from the indexed data. Users can input their queries through the Flask interface, enabling them to search for relevant documents based on their requirements.
+- *Inputs:* The system accepts two main types of inputs: URLs and free-text queries. URLs are provided to initiate the crawling process, specifying the starting point for the web crawler to traverse and retrieve web documents. Free-text queries are utilized to retrieve specific documents or information from the indexed data. Users can input their queries through the Flask interface, enabling them to search for relevant documents based on their requirements.
 
-- **Installation:** Setting up the system requires Python to be installed on the user's machine. Once Python is installed, users can utilize the pip package manager to install the necessary dependencies. These dependencies include libraries and frameworks such as Scrapy, NLTK, Scikit-Learn, and Flask, which are essential for various functionalities of the system. By installing these dependencies, users can ensure that the system functions smoothly and efficiently, ready to perform crawling, indexing, and query processing tasks.
+- *Installation:* Setting up the system requires Python to be installed on the user's machine. Once Python is installed, users can utilize the pip package manager to install the necessary dependencies. These dependencies include libraries and frameworks such as Scrapy, NLTK, Scikit-Learn, and Flask, which are essential for various functionalities of the system. By installing these dependencies, users can ensure that the system functions smoothly and efficiently, ready to perform crawling, indexing, and query processing tasks.
 
 ### Conclusion:
 
